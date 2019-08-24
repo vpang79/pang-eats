@@ -72,3 +72,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'pagy', '~> 3.5'
+
+gem 'simple_form'

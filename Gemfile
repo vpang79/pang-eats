@@ -74,3 +74,5 @@ end
 gem 'pagy', '~> 3.5'
 
 gem 'simple_form'
+
+gem 'font-awesome-rails'

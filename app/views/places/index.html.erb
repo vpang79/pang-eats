@@ -1,4 +1,4 @@
-<%= @places.each do |place| %>
+<% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1><br />
     <i><%= place.address %></i><br /><br />
@@ -10,4 +10,7 @@
   </div>
 <% end %>
 <br />
-<%== pagy_bootstrap_nav(@pagy) %>
+
+<div class="col-4 offset-4">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

@@ -93,3 +93,19 @@
     </div>
   <% end %>
 </div>
+
+<%= simple_form_for @photo, url: place_photos_path(@place) do |g| %>
+  <%= g.input :picture %>
+  <%= g.input :caption %>
+  <%= g.submit "Add image", class: 'btn btn-success' %>
+<% end %>
+
+<h1 class="float-left">Photos</h1>
+<% @place.photos.each do |photo| %>
+  <div>
+    <%= image_tag photo.picture.url, class: 'img-thumbnail' %>
+    <b><%= photo.caption %></b> -
+    <small><%= photo.user.email %></small>
+  </div>
+<% end %>
+

@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="clear"></div>
+<div class="clear"></div>
 </div>
 <br /><br />
 <h1 class="text-center">My Comments</h1>
@@ -33,3 +33,36 @@
     </div>
   <% end %>
 </div>
+
+<div class="clear"></div>
+
+<br /><br />
+<h1 class="text-center">My Places</h1>
+<br /><br />
+<% @user.places.each do |place| %>
+  <div class="booyah-box col-10 offset-1">
+    <h2><%= link_to place.name, place_path(place) %></h2><br />
+    <i><%= place.address %></i><br /><br />
+    <p><%= place.description %></p>
+    
+    <div class="place_photo col-12">
+    <% if place.photos.present? %>
+      <%= image_tag place.photos.last.picture.url, class: 'img-fluid' %>
+    <% end %>
+    </div>
+
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% if place.comments.last.humanized_rating.present? %>
+            <b><%= place.comments.last.humanized_rating %></b> -
+          <% end %>
+          <%= truncate(place.comments.last.message, :length => 35) %>
+          <br />
+          -<small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>
